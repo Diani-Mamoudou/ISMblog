@@ -14,7 +14,7 @@ class ArticleController extends AbstractController
      */
     public function show(ArticleRepository $repo): Response
     {
-        $articles=$repo->findAll();
+        $articles=$repo->findall();
         return $this->render('article/index.html.twig', [
             'articles' => $articles,
         ]);

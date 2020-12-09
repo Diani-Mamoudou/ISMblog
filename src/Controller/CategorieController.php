@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CategorieController extends AbstractController
 {
     /**
-     * @Route("/categorie/show", name="categorie_show", methods={"GET"})
+     * @Route("/categorie/show/{id?}", name="categorie_show", methods={"GET"})
      */
     #on peut ajouter un methode :=> methods={"POST","GET"} elle sera accessible par les 2
     public function show($id, CategorieRepository $repo, Request $request, EntityManagerInterface $manager): Response

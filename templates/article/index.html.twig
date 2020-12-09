@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive" >
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
+                <table class="table table-bordered" id="tableCategorie" width="100%" cellspacing="0" >
                   <thead>
                     <tr>
                       <th class="w-25">Titre</th>
@@ -26,14 +26,14 @@
                         <td>{{article.contenu}}</td>
                         <td>
 
-                          <a href="" class="btn btn-warning btn-icon-split">
+                          <a href="#" class="btn btn-warning btn-icon-split">
                             <span class="icon text-white-50">
                               <i class="fas fa-exclamation-triangle"></i>
                             </span>
                             <span class="text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Modifier</font></font></span>
                           </a>
 
-                          <a href="" class="btn btn-danger btn-icon-split btn_delate" onClick="confirm('Veuillez confirmer la suppression')">
+                          <a href="#" class="btn btn-danger btn-icon-split btn_delate" onClick="confirm('Veuillez confirmer la suppression')">
                             <span class="icon text-white-50">
                               <i class="fas fa-trash"></i>
                             </span>
@@ -61,4 +61,19 @@
 
   <!-- Page level custom scripts -->
   <script src="{{asset("js/demo/datatables-demo.js")}}"></script>
+  <script>
+    $(document).ready(function() {
+    $('#tableCategorie').DataTable( {
+        responsive: false,
+        pageLength:5,
+        lengthMenu: [ 5, 10, 25, 50, 100 ]
+    } );
+
+
+
+
+
+} );
+  </script>
+  
 {% endblock %}
