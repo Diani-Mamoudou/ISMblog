@@ -21,8 +21,6 @@ class CategorieController extends AbstractController
     {
         $categories=$repo->findAll();
         
-        //gestion formulaire mode ajout
-        $categorie=new Categorie();
         //gestion formulaire mode modif
         if (!empty ($id)) {
             $categorie=$repo->find($id);
@@ -79,6 +77,7 @@ class CategorieController extends AbstractController
      * @Route("/categorie/delete/{id}", name="categorie_delate", methods={"GET"})
      */
     public function delete($id,CategorieRepository $repo,EntityManagerInterface $manager): Response{
+        
         $categorie=$repo->find($id);
         $manager->remove($categorie);
         $manager->flush();
