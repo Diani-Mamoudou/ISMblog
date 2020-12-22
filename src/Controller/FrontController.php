@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 /**
- * @Route("/front", name="front_show")
+ * @Route("/front")
  */
 class FrontController extends AbstractController
 {
@@ -26,4 +27,16 @@ class FrontController extends AbstractController
             'articles' => $article
         ]);
     }
+
+    /**
+     * @Route("front/detail_article/{id?}", name="front_detail_article", methods={"GET"})
+     */
+    public function detail_article(Article $article,ArticleRepository $repo): Response
+    {
+        return $this->render('front/detail_article.html.twig', [
+            'article' => $article
+        ]);
+    }
+
+    
 }
